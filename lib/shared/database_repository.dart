@@ -8,9 +8,6 @@ abstract class DatabaseRepository {
   // Gibt die Items zurück.
   Future<List<String>> getItems();
 
-  // Fügt ein neues Item hinzu.
-  Future<void> addItem(String item);
-
   // Speichert Items
   Future<void> saveItems(List<String> tasks);
 

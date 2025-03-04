@@ -7,16 +7,7 @@ class SharedPreferencesRepository implements DatabaseRepository {
 
   @override
   Future<int> get itemCount async {
-    // await Future.delayed(const Duration(milliseconds: 100));
-    // return _items.length;
-
-    final items = await SharedPreferences.getInstance();
-    final List<String>? itemsString = items.getStringList(_key);
-    if (itemsString == null) {
-      return 0;
-    } else {
-      return itemsString.length;
-    }
+    return _items.length;
   }
 
   @override
@@ -36,11 +27,6 @@ class SharedPreferencesRepository implements DatabaseRepository {
     final items = await SharedPreferences.getInstance();
     await items.setStringList(_key, tasks);
     loadTasks();
-  }
-
-  @override
-  Future<void> addItem(String item) async {
-    if (item.isNotEmpty && !_items.contains(item)) _items.add(item);
   }
 
   @override
