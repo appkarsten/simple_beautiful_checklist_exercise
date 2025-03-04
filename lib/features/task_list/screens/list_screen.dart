@@ -23,6 +23,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   void initState() {
     super.initState();
+    widget.repository.loadTasks();
     _updateList();
   }
 
@@ -62,18 +63,22 @@ class _ListScreenState extends State<ListScreen> {
                         icon: const Icon(Icons.add),
                         onPressed: () {
                           if (_controller.text.isNotEmpty) {
-                            widget.repository.addItem(_controller.text);
+                            _items.add(_controller.text);
+                            // widget.repository.saveItems([_controller.text]);
+                            widget.repository.saveItems(_items);
                             _controller.clear();
-                            _updateList();
+                            // _updateList();
+                            setState(() {});
                           }
                         },
                       ),
                     ),
                     onSubmitted: (value) {
                       if (value.isNotEmpty) {
-                        widget.repository.addItem(value);
+                        _items.add(_controller.text);
+                        widget.repository.saveItems(_items);
                         _controller.clear();
-                        _updateList();
+                        setState(() {});
                       }
                     },
                   ),

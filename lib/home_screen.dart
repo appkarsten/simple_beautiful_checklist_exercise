@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_beautiful_checklist_exercise/features/statistics/screens/statistics_screen.dart';
+import 'package:simple_beautiful_checklist_exercise/main.dart';
 import 'package:simple_beautiful_checklist_exercise/shared/database_repository.dart';
 
 import 'features/task_list/screens/list_screen.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_beautiful_checklist_exercise/features/statistics/widgets/task_counter_card.dart';
+import 'package:simple_beautiful_checklist_exercise/main.dart';
 import 'package:simple_beautiful_checklist_exercise/shared/database_repository.dart';
 
 class StatisticsScreen extends StatefulWidget {
