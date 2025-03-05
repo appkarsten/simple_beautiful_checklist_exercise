@@ -10,10 +10,18 @@ class MockDatabase implements DatabaseRepository {
   }
 
   @override
+  Future<void> loadTasks() async {
+    await Future.delayed(const Duration(milliseconds: 100));
+  }
+
+  @override
   Future<List<String>> getItems() async {
     await Future.delayed(const Duration(milliseconds: 100));
     return _items;
   }
+
+  @override
+  Future<void> saveItems(List<String> tasks) async {}
 
   @override
   Future<void> addItem(String item) async {
