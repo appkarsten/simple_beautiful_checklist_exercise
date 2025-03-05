@@ -61,24 +61,24 @@ class _ListScreenState extends State<ListScreen> {
                       labelText: 'Task Hinzufügen',
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.add),
-                        onPressed: () {
+                        onPressed: () async {
                           if (_controller.text.isNotEmpty) {
                             _items.add(_controller.text);
                             // widget.repository.saveItems([_controller.text]);
-                            widget.repository.saveItems(_items);
+                            await widget.repository.saveItems(_items);
                             _controller.clear();
-                            // _updateList();
-                            setState(() {});
+                            _updateList();
+                            //setState(() {});
                           }
                         },
                       ),
                     ),
-                    onSubmitted: (value) {
+                    onSubmitted: (value) async {
                       if (value.isNotEmpty) {
                         _items.add(_controller.text);
-                        widget.repository.saveItems(_items);
+                        await widget.repository.saveItems(_items);
                         _controller.clear();
-                        setState(() {});
+                        _updateList();
                       }
                     },
                   ),
